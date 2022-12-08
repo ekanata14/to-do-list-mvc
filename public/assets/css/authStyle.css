@@ -1,0 +1,22 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+.auth-container{
+    height: 100%;
+    margin:0 auto;
+}
+
+.auth-wrapper{
+    height: 500px;
+}
+
+.auth-wrapper-register{
+    height: 600px;
+}
+
+.auth-left{
+    background-image: url(https://source.unsplash.com/1080x1080/?list);
+    background-size: cover;
+}
