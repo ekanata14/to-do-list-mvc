@@ -1,5 +1,5 @@
 <div class="container text-center mt-3">
-    <h1>Welcome User</h1>
+    <h1>Welcome <?= $_SESSION['user']['username'];?></h1>
     <table class="table">
         <thead>
             <th>Id</th>

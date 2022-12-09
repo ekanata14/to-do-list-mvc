@@ -12,4 +12,9 @@ class User_model{
         $this->db->query("SELECT * FROM {$this->table}");
         return $this->db->resultAll();
     }
+
+    public function getUserByUsername($username){
+        $this->db->query("SELECT * FROM {$this->table} WHERE username = '$username'");
+        return $this->db->result();
+    }
 }

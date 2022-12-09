@@ -5,7 +5,7 @@
             <h3 class="bg-dark text-white">Welcome to Your To Do List Website</h3>
         </div>
         <div class="col-6 d-flex justify-content-center h-100 bg-success">
-            <form action="#" class="w-75 d-flex flex-column justify-content-center align-items-center">
+            <form action="<?= BASE_URL ?>/auth/login" method="POST" class="w-75 d-flex flex-column justify-content-center align-items-center">
                 <h2>LOGIN</h2>
                 <div class="input-group my-3 d-flex flex-column">
                     <label for="username" class="mb-3 f fs-5">Username</label>

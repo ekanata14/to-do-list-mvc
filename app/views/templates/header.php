@@ -1,3 +1,4 @@
+<?= session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +23,9 @@
                 </button>
             </div>
             <div class="profile d-flex align-items-center">
-                <p class="mb-0 me-3">Username</p>
+                <p class="mb-0 me-3"><?= $_SESSION['user']['username'] ?></p>
                 <img src="https://source.unsplash.com/50x50/?person" class="rounded-circle" alt="image" width="50" height="50">
-                <a href="#" class="ms-3 btn btn-danger">Logout</a>
+                <a href="<?= BASE_URL ?>/auth/logout" class="ms-3 btn btn-danger">Logout</a>
             </div>
         </div>
     </div>
