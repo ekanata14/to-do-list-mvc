@@ -7,18 +7,17 @@
         <div class="col-6 d-flex justify-content-center h-100 bg-success">
             <form action="<?= BASE_URL ?>/auth/regisUser" method="POST" class="w-75 d-flex flex-column justify-content-center align-items-center">
                 <h2>REGISTER</h2>
-                <input type="hidden" name="id" value="">
                 <div class="input-group my-3 d-flex flex-column">
                     <label for="username" class="mb-3 f fs-5">Username</label>
-                    <input type="text" name="username" class="form-control w-100 rounded">
+                    <input type="text" name="username" class="form-control w-100 rounded" required autofocus>
                 </div>
                 <div class="input-group my-3 d-flex flex-column">
                     <label for="email" class="mb-3 f fs-5">Email</label>
-                    <input type="email" name="email" class="form-control w-100 rounded">
+                    <input type="email" name="email" class="form-control w-100 rounded" required>
                 </div>
                 <div class="input-group my-3 d-flex flex-column">
                     <label for="password" class="mb-3 fs-5">Password</label>
-                    <input type="password" name="password" class="form-control w-100 rounded">
+                    <input type="password" name="password" class="form-control w-100 rounded" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-50 mt-3">Register</button>
                 <a href="<?= BASE_URL ?>/auth" class="text-decoration-none text-white mt-2">Have an Account?</a>

@@ -31,24 +31,21 @@ class Auth extends Controller{
             unset($_POST);
             header("Location: " . BASE_URL . "/home");
         } else{
-            header("Location: " . BASE_URL . "/login");
+            header("Location: " . BASE_URL . "/auth");
         }
     }
 
     public function regisUser(){
         $data = [
-            'id' => $_POST['id'],
             'username' => $_POST['username'],
             'email' => $_POST['email'],
             'password' => $_POST['password']
         ];
-        // var_dump($data);
-        $this->model("Auth_model")->register($data);
-        // if($this->model("Auth_model")->register($data) > 0){
-        //     echo "Successfully inserted";
-        // } else{
-        //     echo "Failed";
-        // }
+        if($this->model("Auth_model")->register($data) > 0){
+            header("Location: " . BASE_URL . "/auth");
+        } else{
+            echo "Location: " . BASE_URL . "/auth/register";
+        }
     }
 
     public function logout(){

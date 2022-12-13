@@ -17,14 +17,15 @@ class Auth_model{
         $query = "INSERT INTO `{$this->table}`
         VALUES(
             NULL,
-            ':username', 
-            ':email', 
-            ':pass'
-        ";
+            :username, 
+            :email, 
+            :pass
+        )";
         $this->db->query($query);
         $this->db->bind('username', $data['username']);
         $this->db->bind('email', $data['email']);
         $this->db->bind('pass', $data['password']);
+        $this->db->execute();
         return $this->db->rowCount();
     }
 }
