@@ -23,6 +23,7 @@ class Auth extends Controller{
             session_start();
             $user = $this->model('User_model')->getUserByUsername($data['username']);
             $_SESSION['user'] = [
+                'id' => $user['id'],
                 'username' => $user['username'],
                 'email' => $user['email'],
                 'pass' => $user['pass']
