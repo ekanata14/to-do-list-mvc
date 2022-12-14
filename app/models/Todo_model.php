@@ -14,7 +14,7 @@ class Todo_model{
     }
 
     public function getAllTodos(){
-        $this->db->query("SELECT * FROM {$this->table} WHERE id_user = $this->id_user");
+        $this->db->query("SELECT * FROM {$this->table} WHERE id_user = {$this->id_user}");
         return $this->db->resultAll();
     }
 
@@ -44,5 +44,11 @@ class Todo_model{
         $this->db->query("DELETE FROM {$this->table} WHERE id = :id");
         $this->db->bind('id', $data['id']);
         return $this->db->rowCount();
+    }
+
+    public function search($data){
+        $search = $data['search'];
+        $this->db->query("SELECT * FROM {$this->table} WHERE todo LIKE '%$search%' AND id_user = {$this->id_user}");
+        return $this->db->resultAll();
     }
 }

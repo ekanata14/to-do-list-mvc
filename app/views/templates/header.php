@@ -21,15 +21,17 @@ if(!isset($_SESSION)){
                 <h1>To Do List</h1>
             </div>
             <div class="search d-flex">
-                <input type="text" class="form-control search-input">
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+                <form action="<?= BASE_URL . "/home/search"?>" method="POST" class="d-flex">
+                    <input type="text" class="form-control search-input" name="search">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
             </div>
             <div class="profile d-flex align-items-center">
                 <p class="mb-0 me-3"><?= $_SESSION['user']['username'] ?></p>
                 <img src="https://source.unsplash.com/50x50/?person" class="rounded-circle" alt="image" width="50" height="50">
-                <a href="<?= BASE_URL ?>/auth/logout" class="ms-3 btn btn-danger">Logout</a>
+                <a href="<?= BASE_URL ?>/auth/logout" class="ms-3 btn btn-danger"><i class="fa fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
     </div>

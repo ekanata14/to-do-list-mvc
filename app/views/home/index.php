@@ -4,26 +4,9 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Add Todo
     </button>
-
-    
-    <!-- <table class="table">
-        <thead>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Email</th>
-        </thead>
-        <tbody>
-            <?php foreach($data['users'] as $user): ?>
-                <tr>
-                    <td><?= $user['id']; ?></td>
-                    <td><?= $user['username']; ?></td>
-                    <td><?= $user['email']; ?></td>
-                </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table> -->
-    <h3>Hasn't Done To Do</h3>
-    <table class="table">
+    <?php if($data['todos']){?>
+        <h3 class="mt-3">Hasn't Done To Do</h3>
+        <table class="table">
         <thead>
             <th>Id</th>
             <th>To Do</th>
@@ -94,7 +77,9 @@
             <?php endforeach ?>
         </tbody>
     </table>
-
+    <?php } else {?>
+        <h3 class="mt-3">Nothing Found</h3>
+    <?php } ?>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,7 +93,7 @@
             <form action="<?= BASE_URL . "/todo/addTodo"?>" method="POST" class="w-100">
                 <div class="input-group">
                     <label for="todo">To Do</label>
-                    <input type="text" name="todo" id="todo" class="form-control w-100 rounded mt-2">
+                    <input type="text" name="todo" id="todo" class="form-control w-100 rounded mt-2" required autofocus>
                 </div>
         </div>
         <div class="modal-footer">
