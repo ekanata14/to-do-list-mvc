@@ -118,8 +118,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="<?= BASE_URL . "/user/updateUser"?>" method="POST" class="w-100">
+            <form action="<?= BASE_URL . "/user/updateUser"?>" method="POST" class="w-100" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $_SESSION['user']['id'];?>" name="id">
+                <img src="<?= $_SESSION['user']['img'] ?>" alt="user-img" width="125" height="125" class="my-4 border rounded-circle">
+                <input type="file" class="form-control my-2 w-50 mx-auto" name="img">
                 <div class="input-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username-setting" class="form-control w-100 rounded mt-2" required autofocus>

@@ -1,6 +1,7 @@
 <?php 
 if(!isset($_SESSION)){
     session_start();
+    echo (!$_SESSION['user']['image']) ? BASE_URL . "/public/assets/images/user.jpg" : $_SESSION['user']['image'];
 }
 ?>
 <!DOCTYPE html>
@@ -29,9 +30,9 @@ if(!isset($_SESSION)){
                 </form>
             </div>
             <div class="profile d-flex align-items-center">
-                <p class="mb-0 me-3"><?= $_SESSION['user']['username'] ?></p>
-                <img src="https://source.unsplash.com/50x50/?person" class="rounded-circle" alt="image" width="50" height="50">
-                <button type="button" data-bs-toggle="modal" data-bs-target="#settingModal" class="ms-3 btn btn-info" data-username="<?= $_SESSION['user']['username'];?>" data-email="<?= $_SESSION['user']['email'];?>" id="settings"><i class="fa fa-solid fa-gear"></i></button>
+                <p class="mb-0 me-3"><?= $_SESSION['user']['username']; ?></p>
+                <img src="<?= $_SESSION['user']['img'];?>" class="rounded-circle" alt="user-img" width="50" height="50">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#settingModal" class="ms-3 btn btn-info" data-username="<?= $_SESSION['user']['username'];?>" data-email="<?= $_SESSION['user']['email'];?>" data-image="" id="settings"><i class="fa fa-solid fa-gear"></i></button>
                 <a href="<?= BASE_URL ?>/auth/logout" class="ms-3 btn btn-danger"><i class="fa fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>

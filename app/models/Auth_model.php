@@ -14,12 +14,14 @@ class Auth_model{
     }
 
     public function register($data){
+        $image = BASE_URL . "/public/assets/images/user.jpg";
         $query = "INSERT INTO `{$this->table}`
         VALUES(
             NULL,
             :username, 
             :email, 
-            :pass
+            :pass,
+            '$image'
         )";
         $this->db->query($query);
         $this->db->bind('username', $data['username']);

@@ -26,6 +26,7 @@ class Auth extends Controller{
                 'id' => $user['id'],
                 'username' => $user['username'],
                 'email' => $user['email'],
+                'image' => $user['image'],
                 'pass' => $user['pass']
             
             ];
