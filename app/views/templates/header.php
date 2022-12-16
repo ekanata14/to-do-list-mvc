@@ -31,6 +31,7 @@ if(!isset($_SESSION)){
             <div class="profile d-flex align-items-center">
                 <p class="mb-0 me-3"><?= $_SESSION['user']['username'] ?></p>
                 <img src="https://source.unsplash.com/50x50/?person" class="rounded-circle" alt="image" width="50" height="50">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#settingModal" class="ms-3 btn btn-info" data-username="<?= $_SESSION['user']['username'];?>" data-email="<?= $_SESSION['user']['email'];?>" id="settings"><i class="fa fa-solid fa-gear"></i></button>
                 <a href="<?= BASE_URL ?>/auth/logout" class="ms-3 btn btn-danger"><i class="fa fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>

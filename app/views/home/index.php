@@ -66,10 +66,14 @@
                         }
                         ?>
                     </td>
-                    <td>
+                    <td class="d-flex justify-content-center gap-2">
                         <form action="<?= BASE_URL . "/todo/undone"?>" method="POST">
                             <input type="hidden" name="id" value="<?= $todo['id'];?>">
                             <button type="submit" class="btn btn-warning"><i class="fa fa-solid fa-x"></i></button>
+                        </form>
+                        <form action="<?= BASE_URL . "/todo/delete"?>" method="POST">
+                            <input type="hidden" name="id" value="<?= $todo['id'];?>">
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-solid fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -86,7 +90,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Todo</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -99,6 +103,35 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Add Todo</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Setting Modal -->
+    <div class="modal fade" id="settingModal" tabindex="-1" aria-labelledby="settingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Settings</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="<?= BASE_URL . "/user/updateUser"?>" method="POST" class="w-100">
+                <input type="hidden" value="<?= $_SESSION['user']['id'];?>" name="id">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username-setting" class="form-control w-100 rounded mt-2" required autofocus>
+                </div>
+                <div class="input-group mt-2">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email-setting" class="form-control w-100 rounded mt-2" required autofocus>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
         </div>
