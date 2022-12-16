@@ -1,4 +1,5 @@
 <div class="container text-center mt-3">
+    <?php  $numberNotDone = 1; $numberDone = 1?>
     <h1>Welcome <?= $_SESSION['user']['username'];?></h1>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -8,7 +9,7 @@
         <h3 class="mt-3">Hasn't Done To Do</h3>
         <table class="table">
         <thead>
-            <th>Id</th>
+            <th>No</th>
             <th>To Do</th>
             <th>Status</th>
             <th>Action</th>
@@ -17,7 +18,7 @@
             <?php foreach($data['todos'] as $todo): ?>
                 <?php if($todo['isDone'] == 0){?>
                 <tr>
-                    <td><?= $todo['id']; ?></td>
+                    <td><?= $numberNotDone ?></td>
                     <td><?= $todo['todo']; ?></td>
                     <td>
                         <?php
@@ -40,13 +41,13 @@
                     </td>
                 </tr>
                 <?php } else{} ?>
-            <?php endforeach ?>
+            <?php $numberNotDone += 1; endforeach ?>
         </tbody>
     </table>
     <h3>Done Todo</h3>
     <table class="table">
         <thead>
-            <th>Id</th>
+            <th>No</th>
             <th>To Do</th>
             <th>Status</th>
             <th>Action</th>
@@ -55,7 +56,7 @@
             <?php foreach($data['todos'] as $todo): ?>
                 <?php if($todo['isDone'] == 1){?>
                 <tr>
-                    <td><?= $todo['id']; ?></td>
+                    <td><?= $numberDone ?></td>
                     <td><?= $todo['todo']; ?></td>
                     <td>
                         <?php
@@ -78,7 +79,7 @@
                     </td>
                 </tr>
                 <?php } else{} ?>
-            <?php endforeach ?>
+            <?php $numberDone += 1; endforeach ?>
         </tbody>
     </table>
     <?php } else {?>
