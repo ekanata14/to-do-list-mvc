@@ -3,7 +3,7 @@ session_start();
 
 class User extends Controller{
     public function updateUser(){
-
+        // Data from form
         $data = [
             'id' => $_POST['id'],
             'username' => $_POST['username'],
@@ -15,7 +15,10 @@ class User extends Controller{
         $file_name = $data['img'];
         $image = DIR_FOLDER . $file_name;
         move_uploaded_file($_FILES['img']['tmp_name'], $image);
-        
+
+        // Delete previous image
+        unlink("C:/laragon/www" . $_SESSION['user']['img']);
+
         if($this->model("User_model")->updateUser($data) > 0){
             header("Location:" . BASE_URL . "/home");
             $user = $this->model("User_model")->getUserByUsername($data['username']);
@@ -26,7 +29,6 @@ class User extends Controller{
                 'pass' => $user['pass'],
                 'img' => $user['img']
             ];
-
         } else{
             header("Location:" . BASE_URL . "/home");
         }
